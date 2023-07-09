@@ -52,24 +52,24 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(bulletpPrefabs, transform.position + new Vector3(0, 0.5f, 0), bulletpPrefabs.transform.rotation);
-        }
+        //ban bang nut space
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Instantiate(bulletpPrefabs, transform.position + new Vector3(0, 0.5f, 0), bulletpPrefabs.transform.rotation);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Space) && hasPowerUp)
-        {
-            Instantiate(bulletpPrefabs, transform.position + new Vector3(0, 0.5f, 0), bulletpPrefabs.transform.rotation);
-            Instantiate(bulletpPrefabs, transform.position + new Vector3(-0.4f, 0.5f, 0), bulletpPrefabs.transform.rotation);
-            Instantiate(bulletpPrefabs, transform.position + new Vector3(0.4f, 0.5f, 0), bulletpPrefabs.transform.rotation);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && hasPowerUp)
+        //{
+        //    Instantiate(bulletpPrefabs, transform.position + new Vector3(0, 0.5f, 0), bulletpPrefabs.transform.rotation);
+        //    Instantiate(bulletpPrefabs, transform.position + new Vector3(-0.4f, 0.5f, 0), bulletpPrefabs.transform.rotation);
+        //    Instantiate(bulletpPrefabs, transform.position + new Vector3(0.4f, 0.5f, 0), bulletpPrefabs.transform.rotation);
+        //}
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PowerUp"))
         {
-            Debug.Log("nhan duoc suc manh");
             hasPowerUp = true;
             Destroy(collision.gameObject);
             powerUpIcon.gameObject.SetActive(true);
@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerupCountdown()
     {
         yield return new WaitForSeconds(8);
-        Debug.Log("het suc manh");
         hasPowerUp = false;
         powerUpIcon.gameObject.SetActive(false);
     }

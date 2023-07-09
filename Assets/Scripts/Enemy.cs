@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
 
+
     // Start is called before the first frame update
     void Start()
     {
-
+        //StartCoroutine(SpawnManager.instance.EnemyBulletSpawn(transform.position));
+        //SpawnManager.instance.EnemyBulletSpawn(transform.position);
     }
 
     // Update is called once per frame
@@ -20,6 +22,14 @@ public class Enemy : MonoBehaviour
         if (transform.position.y < -7)
         {
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            collision.GetComponent<PlayerHP>().EnemyHitPlayer(1);
         }
     }
 }

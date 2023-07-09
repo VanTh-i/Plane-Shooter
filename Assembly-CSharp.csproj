@@ -57,13 +57,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\BackGround.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerHP.cs" />
     <Compile Include="Assets\Scripts\EnemyHp.cs" />
     <Compile Include="Assets\Scripts\DetectCollisions.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\BackGround.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\RocketMovement.cs" />
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

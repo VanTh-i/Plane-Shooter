@@ -7,7 +7,7 @@ public class EnemyHp : MonoBehaviour
 {
     public Slider enemyHitPoints;
     public int maxHP;
-    public int currentHP;
+    //public int currentHP;
     public int point;
     // Start is called before the first frame update
     void Start()
@@ -24,10 +24,10 @@ public class EnemyHp : MonoBehaviour
     }
     public void HitEnemy(int amount)
     {
-        currentHP -= amount;
+        maxHP -= amount;
         enemyHitPoints.fillRect.gameObject.SetActive(true);
-        enemyHitPoints.value = currentHP;
-        if (currentHP == 0)
+        enemyHitPoints.value = maxHP;
+        if (maxHP == 0)
         {
             Destroy(gameObject);
             FindObjectOfType<GameManager>().IncreaseScore(point);

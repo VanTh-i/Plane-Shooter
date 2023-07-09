@@ -6,23 +6,31 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] spawnEnemy;
     public GameObject powerUpPrefabs;
-    private float spawnDelay = 1f;
-    private float spawnInterval = 3f;
+    public GameObject bulletPrefabs;
+    public GameObject enemyBulletPrefabs;
+    //public static SpawnManager instance;
+
+    private GameObject player;
+    private PlayerController getHasPowerUp;
     private float spawnPosX = 1.9f;
     private float spawnPosY = 7;
-    private float pwUpspawnDelay = 5f;
-    private float pwUpspawnInterval = 25f;
+
+    private void Awake()
+    {
+        getHasPowerUp = FindObjectOfType<PlayerController>();
+        player = GameObject.Find("Player");
+        //instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRandomEnemy", spawnDelay, spawnInterval);
-        InvokeRepeating("SpawnPowerUp", pwUpspawnDelay, pwUpspawnInterval);
+        Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     void SpawnRandomEnemy()
     {
@@ -34,5 +42,40 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnPosX, spawnPosX), spawnPosY, 0);
         Instantiate(powerUpPrefabs, spawnPos, powerUpPrefabs.transform.rotation);
+    }
+    void BulletSpawn()
+    {
+        Vector3 spawnPos = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+        
+        if (getHasPowerUp.hasPowerUp)
+        {
+            Instantiate(bulletPrefabs, player.transform.position + new Vector3(0, 0.5f, 0), bulletPrefabs.transform.rotation);
+            Instantiate(bulletPrefabs, player.transform.position + new Vector3(-0.4f, 0.5f, 0), bulletPrefabs.transform.rotation);
+            Instantiate(bulletPrefabs, player.transform.position + new Vector3(0.4f, 0.5f, 0), bulletPrefabs.transform.rotation);
+        }
+        else
+        {
+            Instantiate(bulletPrefabs, spawnPos, bulletPrefabs.transform.rotation);
+        }
+    }
+    //public IEnumerator EnemyBulletSpawn(Vector3 spawnPos)
+    //{
+    //    //yield return new WaitForSeconds(1f);
+    //    //Vector3 spawnPos = new Vector3(enemy.transform.position.x, enemy.transform.position.y, 0);
+    //    Instantiate(enemyBulletPrefabs, spawnPos, enemyBulletPrefabs.transform.rotation);
+    //    yield return new WaitForSeconds(1f);
+    //}
+    void Spawn()
+    {
+        InvokeRepeating("SpawnRandomEnemy", 1f, 1.5f);
+        InvokeRepeating("SpawnPowerUp", 5f, 25f);
+        InvokeRepeating("BulletSpawn", 0, 0.5f);
+        //InvokeRepeating("EnemyBulletSpawn", 1f, 1f);
+    }
+    public void CancelSpawn()
+    {
+        CancelInvoke("SpawnRandomEnemy");
+        CancelInvoke("SpawnPowerUp");
+        CancelInvoke("BulletSpawn");
     }
 }
