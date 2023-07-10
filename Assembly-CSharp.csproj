@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\BackGround.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -66,7 +67,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\RocketMovement.cs" />
-    <Compile Include="Assets\Scripts\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\EnemyBullets.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

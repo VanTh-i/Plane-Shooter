@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  enemyBulletPrefab: {fileID: 4011317536073977963, guid: e7194c68c5a622740bf86fef1042b58f, type: 3}
 --- !u!114 &3580960877510065257
 MonoBehaviour:
   m_ObjectHideFlags: 0

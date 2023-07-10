@@ -498,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletpPrefabs: {fileID: 6927343721903534634, guid: 7e5e48a8e5075b24aa10bb97a7fff15f, type: 3}
   powerUpIcon: {fileID: 1830458062}
-  speed: 10
+  speed: 6
   hasPowerUp: 0
 --- !u!50 &155242616
 Rigidbody2D:
@@ -534,7 +534,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.060123563}
+  m_Offset: {x: 0, y: -0.092846274}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -545,7 +545,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.18, y: 0.77831435}
+  m_Size: {x: 1.18, y: 0.7128689}
   m_EdgeRadius: 0
 --- !u!114 &155242618
 MonoBehaviour:
@@ -1487,7 +1487,6 @@ MonoBehaviour:
   - {fileID: 924829277594277358, guid: 0aa703441a8838c44940e275858a5029, type: 3}
   powerUpPrefabs: {fileID: 1755127989001470351, guid: ce09606b9f6238d41a6cc283e0808192, type: 3}
   bulletPrefabs: {fileID: 6927343721903534634, guid: 7e5e48a8e5075b24aa10bb97a7fff15f, type: 3}
-  enemyBulletPrefabs: {fileID: 4011317536073977963, guid: e7194c68c5a622740bf86fef1042b58f, type: 3}
 --- !u!4 &1806417768
 Transform:
   m_ObjectHideFlags: 0

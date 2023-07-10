@@ -7,8 +7,6 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] spawnEnemy;
     public GameObject powerUpPrefabs;
     public GameObject bulletPrefabs;
-    public GameObject enemyBulletPrefabs;
-    //public static SpawnManager instance;
 
     private GameObject player;
     private PlayerController getHasPowerUp;
@@ -19,7 +17,6 @@ public class SpawnManager : MonoBehaviour
     {
         getHasPowerUp = FindObjectOfType<PlayerController>();
         player = GameObject.Find("Player");
-        //instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -58,12 +55,10 @@ public class SpawnManager : MonoBehaviour
             Instantiate(bulletPrefabs, spawnPos, bulletPrefabs.transform.rotation);
         }
     }
-    //public IEnumerator EnemyBulletSpawn(Vector3 spawnPos)
+    //void EnemyBulletSpawn()
     //{
-    //    //yield return new WaitForSeconds(1f);
-    //    //Vector3 spawnPos = new Vector3(enemy.transform.position.x, enemy.transform.position.y, 0);
+    //    Vector3 spawnPos = new Vector3(enemy.transform.position.x , enemy.transform.position.y, 0);
     //    Instantiate(enemyBulletPrefabs, spawnPos, enemyBulletPrefabs.transform.rotation);
-    //    yield return new WaitForSeconds(1f);
     //}
     void Spawn()
     {

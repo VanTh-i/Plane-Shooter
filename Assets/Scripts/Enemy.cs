@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+    public GameObject enemyBulletPrefab;
 
-
+    private void Awake()
+    {
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(SpawnManager.instance.EnemyBulletSpawn(transform.position));
-        //SpawnManager.instance.EnemyBulletSpawn(transform.position);
+        InvokeRepeating("EnemyBulletSpawn", 1f, 1.5f);
     }
 
     // Update is called once per frame
@@ -31,5 +34,10 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             collision.GetComponent<PlayerHP>().EnemyHitPlayer(1);
         }
+    }
+    void EnemyBulletSpawn()
+    {
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, 0);
+        Instantiate(enemyBulletPrefab, spawnPos, enemyBulletPrefab.transform.rotation);
     }
 }
